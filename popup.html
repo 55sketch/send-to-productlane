@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Send To Productlane</title>
+  <style>
+    body {
+      min-width: 500px;
+      padding: 30px;
+    }
+
+    img {
+      width: 300px;
+      margin: auto;
+      display: block;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+</head>
+
+<body>
+  <h1>Send To Productlane</h1>
+  <img src="stpwitharrow.png" alt="Productlane Logo">
+  <hr>
+  <h2>Settings</h2>
+  <form id="form">
+    <p>
+      <label for="api-key">API Key:</label>
+      <input type="text" id="api-key" required>
+      <small>Create an API key to use with the extension in your <a
+          href="https://productlane.com/settings/integrations/api" target="_blank">Productlane settings</a></small>
+    </p>
+    <p>
+      <label for="email">Sent From Email:</label>
+      <input type="email" id="email" required>
+      <small>Feedback sent from the extension will be attributed to this email.</small>
+    </p>
+    <p>
+      <button type="submit">Save</button>
+    </p>
+  </form>
+  <p id="success" style="color:green; display:none;">Success!</p>
+  <p id="error" style="color:red; display:none;">Error!</p>
+  <script src="popup.js" type="module"></script>
+</body>
+
+</html>
