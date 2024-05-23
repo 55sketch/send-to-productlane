@@ -12,13 +12,15 @@ chrome.storage.onChanged.addListener(({apiKey, email}) => {
 
 
 chrome.runtime.onInstalled.addListener(async () => {
-  chrome.storage.sync.get(['apiKey']).then((data) => {
-    APIKEY =  data.apiKey;
-  });
-  chrome.storage.sync.get(['email']).then((data) => {
-    EMAIL =  data.email;
-  });
-  if(APIKEY && EMAIL) {
+  const [apiKeyData, emailData] = await Promise.all([
+    chrome.storage.sync.get(['apiKey']),
+    chrome.storage.sync.get(['email'])
+  ]);
+
+  const APIKEY = apiKeyData.apiKey;
+  const EMAIL = emailData.email;
+
+  if (APIKEY && EMAIL) {
     createMenuItem();
   }
 });
