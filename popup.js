@@ -12,10 +12,10 @@ async function handleSubmit(event) {
 
 function init() {
   chrome.storage.sync.get(['apiKey'], (data) => {
-    document.getElementById('api-key').value = data.apiKey;
+    document.getElementById('api-key').value = data.apiKey || '';
   });
   chrome.storage.sync.get(['email'], (data) => {
-    document.getElementById('email').value = data.email;
+    document.getElementById('email').value = data.email || '';
   });
   addFormSubmitListener();
 }

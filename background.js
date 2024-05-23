@@ -17,8 +17,8 @@ chrome.runtime.onInstalled.addListener(async () => {
     chrome.storage.sync.get(['email'])
   ]);
 
-  const APIKEY = apiKeyData.apiKey;
-  const EMAIL = emailData.email;
+  APIKEY = apiKeyData.apiKey;
+  EMAIL = emailData.email;
 
   if (APIKEY && EMAIL) {
     createMenuItem();
